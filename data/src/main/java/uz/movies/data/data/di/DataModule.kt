@@ -31,10 +31,10 @@ object DataModule {
     fun provideCoinRepository(api:CoinPaprikaApi):CoinRepository{
         return CoinRepositoryImpl(api);
     }
-
+/*
     @Provides
     @Singleton
     fun provideCoinsUseCase(coinRepository:CoinRepository):GetCoinsUseCase{
         return GetCoinsUseCase(repository = coinRepository);
-    }
+    }*/
 }

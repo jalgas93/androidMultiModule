@@ -23,8 +23,6 @@ class CoinRecyclerAdapter(val coinList:List<Coin>):RecyclerView.Adapter<CoinRecy
        holder.binding.coinName.text = coinList[position].name
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount(): Int  = coinList.size
 
 }
