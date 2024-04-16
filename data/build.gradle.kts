@@ -51,4 +51,9 @@ dependencies {
     implementation ("com.google.dagger:hilt-android:2.51")
     kapt ("com.google.dagger:hilt-compiler:2.51")
 
+    //LoggingInterceptor
+    implementation("com.github.ihsanbal:LoggingInterceptor:3.1.0") {
+        exclude(group = "org.json", module = "json")
+    }
+
 }

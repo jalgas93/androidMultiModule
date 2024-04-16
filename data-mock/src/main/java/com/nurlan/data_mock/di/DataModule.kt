@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import uz.movies.domain.domain.repository.CoinRepository
+import uz.movies.domain.domain.repository.MovieRepository
 import javax.inject.Singleton
 
 @Module
@@ -13,5 +13,5 @@ import javax.inject.Singleton
 object DataModule {
     @Provides
     @Singleton
-    fun provideCoinRepository():CoinRepository  = CoinRepositoryImpl()
+    fun provideCoinRepository():MovieRepository  = CoinRepositoryImpl()
 }
