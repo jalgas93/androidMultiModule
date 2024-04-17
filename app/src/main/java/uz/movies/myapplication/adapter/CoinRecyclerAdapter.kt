@@ -19,29 +19,13 @@ import uz.movies.myapplication.databinding.CoinRowBinding
 
 
 class CoinRecyclerAdapter(
-    val moviesList: List<Result>, private val context: Context,
-    private val listener: RecyclerViewEvent
+    val moviesList: List<Result>, private val context: Context?,
 ) :
     RecyclerView.Adapter<CoinRecyclerAdapter.CoinViewHolder>() {
 
-        var onItemClick : ((Result)->Unit)? = null
+    var onItemClick: ((Result) -> Unit)? = null
+
     class CoinViewHolder(val binding: CoinRowBinding) : RecyclerView.ViewHolder(binding.root)
-
-    inner class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
-
-        init {
-            view.setOnClickListener(this)
-        }
-
-        override fun onClick(v: View?) {
-            val position = adapterPosition
-
-            if (position != RecyclerView.NO_POSITION) {
-            listener.onItemClick(position)
-            }
-        }
-
-    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -58,9 +42,11 @@ class CoinRecyclerAdapter(
             FitCenter(), RoundedCorners(16)
         )
 
-        Glide.with(context)
-            .load("${Constants.URL_IMAGE_ORIGINAL}${moviesList[position].backdrop_path}")
-            .apply(requestOptions).skipMemoryCache(true).into(holder.binding.imageMain)
+        if (context != null) {
+            Glide.with(context)
+                .load("${Constants.URL_IMAGE_ORIGINAL}${moviesList[position].backdrop_path}")
+                .apply(requestOptions).skipMemoryCache(true).into(holder.binding.imageMain)
+        }
         holder.binding.textView2.text = moviesList[position].title
         holder.binding.textView3.text = moviesList[position].overview
         holder.binding.textView4.text = moviesList[position].popularity.toString()
@@ -72,9 +58,5 @@ class CoinRecyclerAdapter(
 
 
     override fun getItemCount(): Int = moviesList.size
-
-    interface RecyclerViewEvent {
-        fun onItemClick(position: Int)
-    }
 
 }

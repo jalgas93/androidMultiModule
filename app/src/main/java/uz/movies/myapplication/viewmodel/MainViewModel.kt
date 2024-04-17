@@ -8,10 +8,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.movies.domain.domain.common.Resource
-import uz.movies.domain.domain.presentation.Screen
 import uz.movies.domain.domain.use_case.GetMoviesUseCase
 import uz.movies.myapplication.model.MoviesListState
-import uz.movies.myapplication.presentation.Event
 import javax.inject.Inject
 
 @HiltViewModel
@@ -20,12 +18,6 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
     private val _state = MutableLiveData<MoviesListState>()
     val state: LiveData<MoviesListState> = _state
-
-    val navigateTo = MutableLiveData<Event<Screen>>()
-
-    fun onButtonClicks() {
-        navigateTo.value = Event(Screen.FirstScreen)
-    }
     init {
         getMovies()
     }

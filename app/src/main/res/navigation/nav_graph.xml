@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/firstFragment">
+    app:startDestination="@id/homeFragment"
+
+    >
 
     <fragment
         android:id="@+id/firstFragment"
@@ -16,6 +18,9 @@
         <action
             android:id="@+id/action_firstFragment_to_thirdFragment"
             app:destination="@id/thirdFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
@@ -33,6 +38,15 @@
         tools:layout="@layout/fragment_third" >
         <action
             android:id="@+id/action_thirdFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="uz.movies.myapplication.view.screens.bottom_navigation.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_firstFragment"
             app:destination="@id/firstFragment" />
     </fragment>
 </navigation>

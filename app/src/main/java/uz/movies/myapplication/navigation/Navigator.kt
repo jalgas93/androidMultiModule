@@ -21,6 +21,6 @@ class Navigator:MovieListNavigation {
         val bundle = Bundle()
         bundle.putInt("movie_id",id)
         Log.d("Click","HERE")
-        navController?.navigate(R.id.firstFragment)
+        navController?.navigate(R.id.firstFragment,bundle)
     }
 }
