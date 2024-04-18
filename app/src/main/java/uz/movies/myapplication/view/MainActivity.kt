@@ -3,11 +3,15 @@ package uz.movies.myapplication.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import uz.movies.myapplication.R
 import uz.movies.myapplication.databinding.ActivityMainBinding
-import uz.movies.myapplication.navigation.Navigator
+//import uz.movies.myapplication.navigation.Navigator
 import uz.movies.myapplication.view.screens.bottom_navigation.DownloadFragment
 import uz.movies.myapplication.view.screens.bottom_navigation.HomeFragment
 import uz.movies.myapplication.view.screens.bottom_navigation.SupportFragment
@@ -18,15 +22,12 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-    @set:Inject
-    private var navigator: Navigator? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        replaceFragment(HomeFragment())
+        //replaceFragment(HomeFragment())
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
@@ -39,20 +40,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        navigator?.bind(findNavController(R.id.fragment_container_view))
-    }
-
-    override fun onPause() {
-        navigator?.unbind()
-        super.onPause()
-    }
-
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout, fragment)
+        fragmentTransaction.replace(R.id.nav_host_fragment, fragment)
         fragmentTransaction.commit()
     }
 }

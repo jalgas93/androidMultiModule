@@ -3,23 +3,57 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment"
-
-    >
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/firstFragment"
-        android:name="uz.movies.myapplication.view.screens.first.FirstFragment"
-        android:label="fragment_first"
-        tools:layout="@layout/fragment_first" >
+        android:id="@+id/homeFragment"
+        android:name="uz.movies.myapplication.view.screens.bottom_navigation.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_firstFragment_to_secondFragment"
+            android:id="@+id/action_homeFragment_to_supportFragment"
+            app:destination="@id/supportFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_downloadFragment"
+            app:destination="@id/downloadFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_descriptionHomeFragment2"
+            app:destination="@id/descriptionHomeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/downloadFragment"
+        android:name="uz.movies.myapplication.view.screens.bottom_navigation.DownloadFragment"
+        android:label="fragment_download"
+        tools:layout="@layout/fragment_download" >
+        <action
+            android:id="@+id/action_downloadFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_downloadFragment_to_supportFragment"
+            app:destination="@id/supportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/supportFragment"
+        android:name="uz.movies.myapplication.view.screens.bottom_navigation.SupportFragment"
+        android:label="fragment_support"
+        tools:layout="@layout/fragment_support" >
+        <action
+            android:id="@+id/action_supportFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_supportFragment_to_downloadFragment"
+            app:destination="@id/downloadFragment" />
+        <action
+            android:id="@+id/action_supportFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/descriptionHomeFragment2"
+        android:name="uz.movies.myapplication.view.screens.first.DescriptionHomeFragment"
+        android:label="fragment_home_description"
+        tools:layout="@layout/fragment_home_description" >
         <action
-            android:id="@+id/action_firstFragment_to_thirdFragment"
-            app:destination="@id/thirdFragment" />
-        <action
-            android:id="@+id/action_firstFragment_to_homeFragment"
+            android:id="@+id/action_descriptionHomeFragment2_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
@@ -28,25 +62,7 @@
         android:label="fragment_second"
         tools:layout="@layout/fragment_second" >
         <action
-            android:id="@+id/action_secondFragment_to_firstFragment"
-            app:destination="@id/firstFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/thirdFragment"
-        android:name="uz.movies.myapplication.view.screens.third.ThirdFragment"
-        android:label="fragment_third"
-        tools:layout="@layout/fragment_third" >
-        <action
-            android:id="@+id/action_thirdFragment_to_firstFragment"
-            app:destination="@id/firstFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="uz.movies.myapplication.view.screens.bottom_navigation.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_firstFragment"
-            app:destination="@id/firstFragment" />
+            android:id="@+id/action_secondFragment_to_supportFragment"
+            app:destination="@id/supportFragment" />
     </fragment>
 </navigation>
