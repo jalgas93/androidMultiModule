@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import uz.movies.myapplication.R
 import uz.movies.myapplication.databinding.FragmentHomeDescriptionBinding
 import uz.movies.myapplication.databinding.FragmentSecondBinding
@@ -25,7 +26,14 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnGoTo3.setOnClickListener{
-            findNavController().navigate(R.id.action_secondFragment_to_supportFragment)
+          //  findNavController().navigate(R.id.action_secondFragment_to_supportFragment)
+
+            findNavController().navigate(R.id.action_secondFragment_to_supportFragment, null, navOptions {
+                popUpTo(findNavController().graph.startDestinationId) {
+                    inclusive = true
+                }
+            })
+
         }
     }
 }

@@ -29,12 +29,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
         //replaceFragment(HomeFragment())
 
+
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.bottom_home -> replaceFragment(HomeFragment())
                 R.id.bottom_support -> replaceFragment(SupportFragment())
                 R.id.bottom_downloads -> replaceFragment(DownloadFragment())
                 else -> {}
+
+
             }
             true
         }

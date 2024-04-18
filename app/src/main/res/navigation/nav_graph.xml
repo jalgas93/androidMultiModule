@@ -20,6 +20,8 @@
             android:id="@+id/action_homeFragment_to_descriptionHomeFragment2"
             app:destination="@id/descriptionHomeFragment2" />
     </fragment>
+
+
     <fragment
         android:id="@+id/downloadFragment"
         android:name="uz.movies.myapplication.view.screens.bottom_navigation.DownloadFragment"
@@ -32,6 +34,7 @@
             android:id="@+id/action_downloadFragment_to_supportFragment"
             app:destination="@id/supportFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/supportFragment"
         android:name="uz.movies.myapplication.view.screens.bottom_navigation.SupportFragment"
@@ -47,6 +50,7 @@
             android:id="@+id/action_supportFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/descriptionHomeFragment2"
         android:name="uz.movies.myapplication.view.screens.first.DescriptionHomeFragment"

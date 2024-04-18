@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavDeepLinkBuilder
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import uz.movies.myapplication.R
 import uz.movies.myapplication.databinding.FragmentSupportBinding
 class SupportFragment : Fragment() {
@@ -25,7 +28,12 @@ private lateinit var  binding:FragmentSupportBinding
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnGoTo2.setOnClickListener {
-            findNavController().navigate(R.id.action_supportFragment_to_secondFragment)
+            NavDeepLinkBuilder(requireContext())
+                .setGraph(R.navigation.nav_graph)
+                .setDestination(R.id.secondFragment)
+                .createTaskStackBuilder().startActivities()
+
+
         }
     }
 
