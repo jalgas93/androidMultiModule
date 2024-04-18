@@ -18,6 +18,7 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
     private val _state = MutableLiveData<MoviesListState>()
     val state: LiveData<MoviesListState> = _state
+
     init {
         getMovies()
     }

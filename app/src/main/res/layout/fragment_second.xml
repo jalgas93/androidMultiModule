@@ -6,18 +6,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.screens.second.SecondFragment">
 
-
     <Button
-        android:id="@+id/btnGoBack"
+        android:id="@+id/btnGoTo3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:layout_marginTop="136dp"
-        android:text="Go to main screen"
+        android:text="Go to support"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
